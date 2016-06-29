@@ -4,25 +4,64 @@ color_recipes = {}
 
 if ENABLE_CONCRETE then
     -- recipes for colored concrete
-    function add_concrete(color,rgb)
-        concrete = {}
-        concrete.type = "recipe"
-        concrete.name = "concrete-"..color
-        concrete.enabled = false
-        concrete.ingredients = {{"concrete",CONCRETE_BATCH_SIZE}}
-        concrete.energy_required = CRAFTING_TIME_CONCRETE
-        concrete.result = "concrete-"..color
-        concrete.result_count = CONCRETE_BATCH_SIZE
-        table.insert(color_recipes,concrete)
-    end
-
-    for color,rgb in pairs(COLOR_TABLE) do
-        add_concrete(color,rgb)
-    end
-
-    for color,rgb in pairs(TEXTURE_CONCRETE_TABLE) do
-        add_concrete(color,rgb)
-    end
+    table.insert(color_recipes,
+    {
+    type = "recipe",
+    name = "colored-rgbw-concrete",
+    energy_required = 0.25,
+    enabled = false,
+    category = "crafting",
+    ingredients =
+    {
+      {"concrete", 10}
+    },
+    result= "colored-rgbw-concrete",
+    result_count = 10
+    })
+    
+    table.insert(color_recipes,
+    {
+    type = "recipe",
+    name = "colored-cmyk-concrete",
+    energy_required = 0.25,
+    enabled = false,
+    category = "crafting",
+    ingredients =
+    {
+      {"concrete", 10}
+    },
+    result= "colored-cmyk-concrete",
+    result_count = 10
+    })
+    table.insert(color_recipes,
+    {
+    type = "recipe",
+    name = "colored-op-concrete",
+    energy_required = 0.25,
+    enabled = false,
+    category = "crafting",
+    ingredients =
+    {
+      {"concrete", 10}
+    },
+    result= "colored-op-concrete",
+    result_count = 10
+    })
+    
+    table.insert(color_recipes,
+    {
+    type = "recipe",
+    name = "fire-hazard-concrete",
+    energy_required = 0.25,
+    enabled = false,
+    category = "crafting",
+    ingredients =
+    {
+      {"concrete", 10}
+    },
+    result= "fire-hazard-concrete",
+    result_count = 10
+    })
 end
 
 if ENABLE_LAMPS then

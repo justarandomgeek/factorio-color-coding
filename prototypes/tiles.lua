@@ -7,6 +7,7 @@ if ENABLE_CONCRETE then
     function add_concrete(color,rgb)
         concrete = util.table.deepcopy(data.raw["tile"]["concrete"])
         concrete.name                           = "concrete-"..color
+        concrete.next_direction                 = "concrete-"..NEXT_COLOR_TABLE[color]
         concrete.variants.main[1].picture       = MOD_NAME.."/graphics/concrete/"..color.."/concrete1.png"
         concrete.variants.main[2].picture       = MOD_NAME.."/graphics/concrete/"..color.."/concrete2.png"
         concrete.variants.main[3].picture       = MOD_NAME.."/graphics/concrete/"..color.."/concrete4.png"
@@ -20,12 +21,8 @@ if ENABLE_CONCRETE then
             g = (rgb["g"] * 0.5),
             b = (rgb["b"] * 0.5)
         }
-        if UNCRAFT_ITEMS_ON_PICKUP then
-            concrete.minable["result"] = "concrete"
-        else
-            concrete.minable["result"] = "concrete-"..color
-        end
-
+        concrete.minable["result"] = TILE_MINE_RESULT[color]
+        
         table.insert(color_tiles,concrete)
     end
 
@@ -33,7 +30,7 @@ if ENABLE_CONCRETE then
         add_concrete(color,rgb)
     end
 
-    for color,rgb in pairs(TEXTURE_CONCRETE_TABLE) do
+    for color,rgb in pairs(FIRE_CONCRETE_TABLE) do
         add_concrete(color,rgb)
     end
 end

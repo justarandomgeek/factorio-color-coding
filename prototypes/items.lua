@@ -4,30 +4,71 @@ color_items = {}
 
 if ENABLE_CONCRETE then
     -- colored concrete inventory items
-    function add_concrete(color,rgb,pad,i)
-        concrete = util.table.deepcopy(data.raw["item"]["concrete"])
-        concrete.name = "concrete-"..color
-        concrete.icon = MOD_NAME.."/graphics/concrete/"..color.."/icon.png"
-        concrete.place_as_tile.result = "concrete-"..color
-        concrete.order = "c-aa"..pad..i.."-"..color.."]"
-        concrete.subgroup = "color-concrete"
-        table.insert(color_items,concrete)
-    end
-
-    i = 0
-    for color,rgb in pairs(COLOR_TABLE) do
-        --ugly numbering/zero padding hack to get the crafting screen to sort chromatically rather than alphabetically
-        i = i + 1
-        if i < 10 then pad = "0" else pad = "" end
-        add_concrete(color,rgb,pad,i)
-    end
-
-    for color,rgb in pairs(TEXTURE_CONCRETE_TABLE) do
-        --ugly numbering/zero padding hack to get the crafting screen to sort chromatically rather than alphabetically
-        i = i + 1
-        if i < 10 then pad = "0" else pad = "" end
-        add_concrete(color,rgb,pad,i)
-    end
+    table.insert(color_items,
+    {
+    type = "item",
+    name = "colored-rgbw-concrete",
+    icon = MOD_NAME.."/graphics/concrete/red/icon.png",
+    flags = {"goes-to-main-inventory"},
+    subgroup = "terrain",
+    order = "b[concrete]-b[colored1]",
+    stack_size = 100,
+    place_as_tile =
+    {
+      result = "concrete-red",
+      condition_size = 4,
+      condition = { "water-tile" }
+    }
+    })
+    table.insert(color_items,
+    {
+    type = "item",
+    name = "colored-cmyk-concrete",
+    icon = MOD_NAME.."/graphics/concrete/cyan/icon.png",
+    flags = {"goes-to-main-inventory"},
+    subgroup = "terrain",
+    order = "b[concrete]-b[colored2]",
+    stack_size = 100,
+    place_as_tile =
+    {
+      result = "concrete-cyan",
+      condition_size = 4,
+      condition = { "water-tile" }
+    }
+    })
+    table.insert(color_items,
+    {
+    type = "item",
+    name = "colored-op-concrete",
+    icon = MOD_NAME.."/graphics/concrete/orange/icon.png",
+    flags = {"goes-to-main-inventory"},
+    subgroup = "terrain",
+    order = "b[concrete]-b[colored3]",
+    stack_size = 100,
+    place_as_tile =
+    {
+      result = "concrete-orange",
+      condition_size = 4,
+      condition = { "water-tile" }
+    }
+    })
+    
+    table.insert(color_items,
+    {
+    type = "item",
+    name = "fire-hazard-concrete",
+    icon = MOD_NAME.."/graphics/concrete/fire-left/icon.png",
+    flags = {"goes-to-main-inventory"},
+    subgroup = "terrain",
+    order = "b[concrete]-b[fire]",
+    stack_size = 100,
+    place_as_tile =
+    {
+      result = "concrete-fire-left",
+      condition_size = 4,
+      condition = { "water-tile" }
+    }
+	 })
 end
 
 if ENABLE_LAMPS then

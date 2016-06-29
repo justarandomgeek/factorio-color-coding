@@ -27,11 +27,49 @@ COLOR_TABLE["black"  ]={r=0.1, g=0.1, b=0.1}
 -- The RGB values control the color of the pixels on the minimap for each type of concrete
 -- To add another concrete all you have to do is add an appropriate line here,
 -- then make a new folder in graphics/concrete/ to match and add your texture assets there.
-TEXTURE_CONCRETE_TABLE = {}
-TEXTURE_CONCRETE_TABLE["fire-left"   ]={r=1.0, g=0.5, b=0.5}
-TEXTURE_CONCRETE_TABLE["fire-right"  ]={r=1.0, g=0.5, b=0.5}
+FIRE_CONCRETE_TABLE = {}
+FIRE_CONCRETE_TABLE["fire-left"   ]={r=1.0, g=0.5, b=0.5}
+FIRE_CONCRETE_TABLE["fire-right"  ]={r=1.0, g=0.5, b=0.5}
 
 --  Note that when adding to either table above, you will also need to create/update locale strings in ./locale/en/en.cfg to match.
+
+
+
+-- This table controls what color is "next" when rotating to change colors. 
+NEXT_COLOR_TABLE = {}
+
+NEXT_COLOR_TABLE["red"    ]="green"
+NEXT_COLOR_TABLE["green"  ]="blue"
+NEXT_COLOR_TABLE["blue"   ]="white"
+NEXT_COLOR_TABLE["white"  ]="red"
+
+NEXT_COLOR_TABLE["cyan"   ]="magenta"
+NEXT_COLOR_TABLE["magenta"]="yellow"
+NEXT_COLOR_TABLE["yellow" ]="black"
+NEXT_COLOR_TABLE["black"  ]="cyan"
+
+NEXT_COLOR_TABLE["orange" ]="purple"
+NEXT_COLOR_TABLE["purple" ]="orange"
+
+NEXT_COLOR_TABLE["fire-left" ]="fire-right"
+NEXT_COLOR_TABLE["fire-right"]="fire-left"
+
+TILE_MINE_RESULT={}
+TILE_MINE_RESULT["red"    ]="colored-rgbw-concrete"
+TILE_MINE_RESULT["green"  ]="colored-rgbw-concrete"
+TILE_MINE_RESULT["blue"   ]="colored-rgbw-concrete"
+TILE_MINE_RESULT["white"  ]="colored-rgbw-concrete"
+
+TILE_MINE_RESULT["cyan"   ]="colored-cmyk-concrete"
+TILE_MINE_RESULT["magenta"]="colored-cmyk-concrete"
+TILE_MINE_RESULT["yellow" ]="colored-cmyk-concrete"
+TILE_MINE_RESULT["black"  ]="colored-cmyk-concrete"
+
+TILE_MINE_RESULT["orange" ]="colored-op-concrete"
+TILE_MINE_RESULT["purple" ]="colored-op-concrete"
+
+TILE_MINE_RESULT["fire-left" ]="fire-hazard-concrete"
+TILE_MINE_RESULT["fire-right"]="fire-hazard-concrete"
 
 
 --COMPONENT TOGGLES
