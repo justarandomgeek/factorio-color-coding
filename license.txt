@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2014 D3Phoenix
+Copyright (c) 2016 D3Phoenix, justarandomgeek
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

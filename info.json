@@ -1,8 +1,8 @@
 {
   "name": "color-coding",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "title": "Color Coding",
-  "author": "D3Phoenix",
+  "author": "D3Phoenix, justarandomgeek",
   "homepage": "http://www.factorioforums.com/forum/viewtopic.php?f=144&t=13907",
   "factorio_version": "0.13",
   "dependencies": ["base >= 0.13"], 
