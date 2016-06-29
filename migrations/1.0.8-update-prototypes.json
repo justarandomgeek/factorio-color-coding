@@ -1,0 +1,47 @@
+{
+"entity":
+  [
+    ["diesel-locomotive-red",       "diesel-locomotive"],
+    ["diesel-locomotive-orange",    "diesel-locomotive"],
+    ["diesel-locomotive-yellow",    "diesel-locomotive"],
+    ["diesel-locomotive-green",     "diesel-locomotive"],
+    ["diesel-locomotive-cyan",      "diesel-locomotive"],
+    ["diesel-locomotive-blue",      "diesel-locomotive"],
+    ["diesel-locomotive-purple",    "diesel-locomotive"],
+    ["diesel-locomotive-magenta",   "diesel-locomotive"],
+    ["diesel-locomotive-black",     "diesel-locomotive"],
+    ["diesel-locomotive-white",     "diesel-locomotive"]
+  ],
+  "item":
+  [
+    ["diesel-locomotive-red",     "diesel-locomotive"],
+    ["diesel-locomotive-orange",  "diesel-locomotive"],
+    ["diesel-locomotive-yellow",  "diesel-locomotive"],
+    ["diesel-locomotive-green",   "diesel-locomotive"],
+    ["diesel-locomotive-cyan",    "diesel-locomotive"],
+    ["diesel-locomotive-blue",    "diesel-locomotive"],
+    ["diesel-locomotive-purple",  "diesel-locomotive"],
+    ["diesel-locomotive-magenta", "diesel-locomotive"],
+    ["diesel-locomotive-black",   "diesel-locomotive"],
+    ["diesel-locomotive-white",   "diesel-locomotive"],
+  
+	  ["concrete-red", "colored-rgbw-concrete"],
+    ["concrete-green", "colored-rgbw-concrete"],
+    ["concrete-blue", "colored-rgbw-concrete"],
+    ["concrete-white", "colored-rgbw-concrete"],
+    
+    ["concrete-cyan", "colored-cmyk-concrete"],
+    ["concrete-magenta", "colored-cmyk-concrete"],
+    ["concrete-yellow", "colored-cmyk-concrete"],
+    ["concrete-black", "colored-cmyk-concrete"],
+    
+    ["concrete-orange", "colored-op-concrete"],
+    ["concrete-purple", "colored-op-concrete"]
+    
+  ],
+  "tile":
+  [
+    ["concrete-hazard-left", "hazard-concrete-left"],
+    ["concrete-hazard-right", "hazard-concrete-right"]
+  ]
+}
