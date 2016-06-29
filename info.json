@@ -1,0 +1,9 @@
+{
+  "name": "color-coding",
+  "version": "1.0.7",
+  "title": "Color Coding",
+  "author": "D3Phoenix",
+  "homepage": "http://www.factorioforums.com/forum/viewtopic.php?f=144&t=13907",
+  "dependencies": ["base >= 0.12"],
+  "description": "Adds color-coded locomotives, indicator lamps, and concrete."
+}
