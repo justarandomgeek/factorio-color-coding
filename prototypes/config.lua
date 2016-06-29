@@ -40,7 +40,6 @@ TEXTURE_CONCRETE_TABLE["fire-right"  ]={r=1.0, g=0.5, b=0.5}
 -- WARNING: CHANGING THESE AFTER THE MOD HAS BEEN INSTALLED MAY PREVENT OLD WORLDS FROM LOADING.
 -- If you don't have any of the item you disable in your world, then you're probably fine.
 -- But if any of these objects are in your world and you disable them, you will lose those items, and the game may even crash.
-ENABLE_TRAINS = true               -- set to false to disable installing of colored trains (saves about ~100MB of VRAM on low-end machines)
 ENABLE_LAMPS = true                -- set to false to disable indicator lamps
 ENABLE_CONCRETE = true             -- set to false to disable colored and textured concrete
 

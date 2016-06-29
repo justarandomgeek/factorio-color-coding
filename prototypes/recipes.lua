@@ -39,18 +39,4 @@ if ENABLE_LAMPS then
     end
 end
 
-if ENABLE_TRAINS then
-    -- recipes for colored trains
-    for color,rgb in pairs(COLOR_TABLE) do
-        train = {}
-        train.type = "recipe"
-        train.name = "diesel-locomotive-"..color
-        train.enabled = false
-        train.energy_required = CRAFTING_TIME_TRAINS
-        train.ingredients = {{"diesel-locomotive", 1}}
-        train.result = "diesel-locomotive-"..color
-        table.insert(color_recipes,train)
-    end
-end
-
 data:extend(color_recipes)
