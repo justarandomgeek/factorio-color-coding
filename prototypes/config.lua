@@ -42,7 +42,7 @@ NEXT_COLOR_TABLE["fire-left" ]="fire-right"
 NEXT_COLOR_TABLE["fire-right"]="fire-left"
 
 TILE_MINE_RESULT={}
-for color,_ in ipairs(COLOR_TABLE) do
+for color,_ in pairs(COLOR_TABLE) do
   TILE_MINE_RESULT[color]="concrete-"..color
 end
 
