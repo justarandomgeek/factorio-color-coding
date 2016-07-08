@@ -38,35 +38,13 @@ FIRE_CONCRETE_TABLE["fire-right"  ]={r=1.0, g=0.5, b=0.5}
 -- This table controls what color is "next" when rotating to change colors. 
 NEXT_COLOR_TABLE = {}
 
-NEXT_COLOR_TABLE["red"    ]="green"
-NEXT_COLOR_TABLE["green"  ]="blue"
-NEXT_COLOR_TABLE["blue"   ]="white"
-NEXT_COLOR_TABLE["white"  ]="red"
-
-NEXT_COLOR_TABLE["cyan"   ]="magenta"
-NEXT_COLOR_TABLE["magenta"]="yellow"
-NEXT_COLOR_TABLE["yellow" ]="black"
-NEXT_COLOR_TABLE["black"  ]="cyan"
-
-NEXT_COLOR_TABLE["orange" ]="purple"
-NEXT_COLOR_TABLE["purple" ]="orange"
-
 NEXT_COLOR_TABLE["fire-left" ]="fire-right"
 NEXT_COLOR_TABLE["fire-right"]="fire-left"
 
 TILE_MINE_RESULT={}
-TILE_MINE_RESULT["red"    ]="colored-rgbw-concrete"
-TILE_MINE_RESULT["green"  ]="colored-rgbw-concrete"
-TILE_MINE_RESULT["blue"   ]="colored-rgbw-concrete"
-TILE_MINE_RESULT["white"  ]="colored-rgbw-concrete"
-
-TILE_MINE_RESULT["cyan"   ]="colored-cmyk-concrete"
-TILE_MINE_RESULT["magenta"]="colored-cmyk-concrete"
-TILE_MINE_RESULT["yellow" ]="colored-cmyk-concrete"
-TILE_MINE_RESULT["black"  ]="colored-cmyk-concrete"
-
-TILE_MINE_RESULT["orange" ]="colored-op-concrete"
-TILE_MINE_RESULT["purple" ]="colored-op-concrete"
+for color,_ in ipairs(COLOR_TABLE) do
+  TILE_MINE_RESULT[color]="concrete-"..color
+end
 
 TILE_MINE_RESULT["fire-left" ]="fire-hazard-concrete"
 TILE_MINE_RESULT["fire-right"]="fire-hazard-concrete"
@@ -102,7 +80,7 @@ CONCRETE_BATCH_SIZE         = 10
 -- UNCRAFTING SETTINGS
 -- Set this to 'false' to disable colored items reverting to stock when you pick them up
 -- Note that this will make it impossible to revert a colored item to stock, or to convert from one color to another!
-UNCRAFT_ITEMS_ON_PICKUP     = true
+UNCRAFT_ITEMS_ON_PICKUP     = false
 
 -- NOTE:
 -- After changing any of the crafting settings, you may need to run this command in game,

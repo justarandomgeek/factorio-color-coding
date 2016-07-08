@@ -10,12 +10,11 @@ if ENABLE_CONCRETE then
     concrete.prerequisites = {"concrete"}
     concrete.unit = {count=50, ingredients={{"science-pack-1",1},{"science-pack-2",1}}, time=30}
     concrete.order = "c-c-cc"
-    concrete.effects = {
-	   { type="unlock-recipe", recipe="colored-rgbw-concrete" },
-	   { type="unlock-recipe", recipe="colored-cmyk-concrete" },
-	   { type="unlock-recipe", recipe="colored-op-concrete" },
-	   { type="unlock-recipe", recipe="fire-hazard-concrete" }
-	 }
+    concrete.effects = {}
+    for color,rgb in pairs(COLOR_TABLE) do
+        table.insert(concrete.effects, { type="unlock-recipe", recipe="concrete-"..color })
+    end
+    table.insert(concrete.effects, { type="unlock-recipe", recipe="fire-hazard-concrete" })
     table.insert(color_technologies, concrete)
 end
 

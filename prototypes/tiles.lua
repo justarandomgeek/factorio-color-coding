@@ -7,7 +7,9 @@ if ENABLE_CONCRETE then
     function add_concrete(color,rgb)
         concrete = util.table.deepcopy(data.raw["tile"]["concrete"])
         concrete.name                           = "concrete-"..color
-        concrete.next_direction                 = "concrete-"..NEXT_COLOR_TABLE[color]
+        if NEXT_COLOR_TABLE[color] then
+          concrete.next_direction                 = "concrete-"..NEXT_COLOR_TABLE[color]
+        end
         concrete.variants.main[1].picture       = MOD_NAME.."/graphics/concrete/"..color.."/concrete1.png"
         concrete.variants.main[2].picture       = MOD_NAME.."/graphics/concrete/"..color.."/concrete2.png"
         concrete.variants.main[3].picture       = MOD_NAME.."/graphics/concrete/"..color.."/concrete4.png"
@@ -22,7 +24,7 @@ if ENABLE_CONCRETE then
             b = (rgb["b"] * 0.5)
         }
         concrete.minable["result"] = TILE_MINE_RESULT[color]
-        
+
         table.insert(color_tiles,concrete)
     end
 

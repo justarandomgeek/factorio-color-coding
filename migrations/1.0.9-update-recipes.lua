@@ -1,5 +1,5 @@
-LAMPS = {"red","orange","yellow","green","cyan","blue","purple","magenta","white","black"}
-CONCRETE = {"colored-rgbw","colored-cmyk","colored-op","fire-hazard"}
+COLORS = {"red","orange","yellow","green","cyan","blue","purple","magenta","white","black"}
+CONCRETE = {"fire-hazard"}
 
 for index, force in pairs(game.forces) do
     local technologies = force.technologies;
@@ -18,8 +18,10 @@ for index, force in pairs(game.forces) do
         enable_lamps = true
     end
     
-    for i,color in ipairs(LAMPS) do
+    for i,color in ipairs(COLORS) do
+        recipes["concrete-"..color].enabled          = enable_concrete
         recipes["small-lamp-"..color].enabled        = enable_lamps
+        recipes["concrete-"..color].reload()
         recipes["small-lamp-"..color].reload()
     end
 

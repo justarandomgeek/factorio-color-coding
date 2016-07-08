@@ -21,4 +21,11 @@ data:extend({
         group = "color-mod",
         order = "t",
     },
+    {
+        -- row for colored concretes
+        type = "item-subgroup",
+        name = "color-concrete",
+        group = "color-mod",
+        order = "x",
+    }
 })

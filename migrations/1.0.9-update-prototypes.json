@@ -25,18 +25,9 @@
     ["diesel-locomotive-black",   "diesel-locomotive"],
     ["diesel-locomotive-white",   "diesel-locomotive"],
   
-	  ["concrete-red", "colored-rgbw-concrete"],
-    ["concrete-green", "colored-rgbw-concrete"],
-    ["concrete-blue", "colored-rgbw-concrete"],
-    ["concrete-white", "colored-rgbw-concrete"],
-    
-    ["concrete-cyan", "colored-cmyk-concrete"],
-    ["concrete-magenta", "colored-cmyk-concrete"],
-    ["concrete-yellow", "colored-cmyk-concrete"],
-    ["concrete-black", "colored-cmyk-concrete"],
-    
-    ["concrete-orange", "colored-op-concrete"],
-    ["concrete-purple", "colored-op-concrete"]
+	  ["colored-rgbw-concrete", "concrete-red"],
+    ["colored-cmyk-concrete", "concrete-magenta"],
+    ["colored-op-concrete", "concrete-orange"]
     
   ],
   "tile":
