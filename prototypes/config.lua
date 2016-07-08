@@ -70,7 +70,7 @@ LAMP_BLACKLIGHT_COLOR       = {r=0.75, g=0.5, b=1.0, a=LAMP_ALPHA}
 
 -- CRAFTING SETTINGS
 -- Times are in seconds. Default is 0.01 (instantaneous) for all crafting times.
-CRAFTING_TIME_CONCRETE      = 0.01
+CRAFTING_TIME_CONCRETE      = 0.25
 CRAFTING_TIME_LAMPS         = 0.01
 CRAFTING_TIME_TRAINS        = 0.01
 
