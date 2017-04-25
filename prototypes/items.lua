@@ -21,23 +21,23 @@ if ENABLE_CONCRETE then
         if i < 10 then pad = "0" else pad = "" end
         add_concrete(color,rgb,pad,i)
     end
-    
-    table.insert(color_items,
-    {
-      type = "item",
-      name = "fire-hazard-concrete",
-      icon = MOD_NAME.."/graphics/concrete/fire-left/icon.png",
-      flags = {"goes-to-main-inventory"},
-      subgroup = "terrain",
-      order = "b[concrete]-b[fire]",
-      stack_size = 100,
-      place_as_tile =
-      {
-        result = "concrete-fire-left",
-        condition_size = 4,
-        condition = { "water-tile" }
-      }
-    })
+
+    --table.insert(color_items,
+    --{
+    --  type = "item",
+    --  name = "fire-hazard-concrete",
+    --  icon = MOD_NAME.."/graphics/concrete/fire-left/icon.png",
+    --  flags = {"goes-to-main-inventory"},
+    --  subgroup = "terrain",
+    --  order = "b[concrete]-b[fire]",
+    --  stack_size = 100,
+    --  place_as_tile =
+    --  {
+    --    result = "concrete-fire-left",
+    --    condition_size = 4,
+    --    condition = { "water-tile" }
+    --  }
+    --})
     
 end
 
