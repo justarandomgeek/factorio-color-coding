@@ -35,20 +35,4 @@ if ENABLE_LAMPS then
     table.insert(color_technologies, lamp)
 end
 
-if ENABLE_TRAINS then
--- colored trains tech
-    train = util.table.deepcopy(data.raw["technology"]["railway"])
-    train.name = "colored-trains"
-    train.icon = MOD_NAME.."/graphics/locomotive/cyan/icon.png"
-    train.icon_size = 32
-    train.prerequisites = {"railway"}
-    train.unit = {count=30, ingredients={{"science-pack-1",1},{"science-pack-2",1}}, time=20}
-    train.order = "c-g-ac"
-    train.effects = {}
-    for color,rgb in pairs(COLOR_TABLE) do
-        table.insert(train.effects, { type="unlock-recipe", recipe="diesel-locomotive-"..color })
-    end
-    table.insert(color_technologies, train)
-end
-
 data:extend(color_technologies)

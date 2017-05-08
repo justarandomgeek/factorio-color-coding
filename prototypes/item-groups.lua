@@ -16,13 +16,6 @@ data:extend({
         order = "l",
     },
     {
-        -- row for colored trains
-        type = "item-subgroup",
-        name = "color-trains",
-        group = "color-mod",
-        order = "t",
-    },
-    {
         -- row for colored concretes
         type = "item-subgroup",
         name = "color-concrete",
