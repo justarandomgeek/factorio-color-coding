@@ -7,6 +7,7 @@ if ENABLE_CONCRETE then
     concrete = util.table.deepcopy(data.raw["technology"]["railway"])
     concrete.name = "colored-concrete"
     concrete.icon = MOD_NAME.."/graphics/concrete/cyan/icon.png"
+    concrete.icon_size = 32
     concrete.prerequisites = {"concrete"}
     concrete.unit = {count=50, ingredients={{"science-pack-1",1},{"science-pack-2",1}}, time=30}
     concrete.order = "c-c-cc"
@@ -23,6 +24,7 @@ if ENABLE_LAMPS then
     lamp = util.table.deepcopy(data.raw["technology"]["optics"])
     lamp.name = "colored-lamps"
     lamp.icon = MOD_NAME.."/graphics/lamp/cyan/icon.png"
+    lamp.icon_size = 32
     lamp.prerequisites = {"optics", "circuit-network"}
     lamp.unit = {count=20, ingredients={{"science-pack-1",1},{"science-pack-2",1}}, time=15}
     lamp.order = "a-h-ac"
@@ -38,6 +40,7 @@ if ENABLE_TRAINS then
     train = util.table.deepcopy(data.raw["technology"]["railway"])
     train.name = "colored-trains"
     train.icon = MOD_NAME.."/graphics/locomotive/cyan/icon.png"
+    train.icon_size = 32
     train.prerequisites = {"railway"}
     train.unit = {count=30, ingredients={{"science-pack-1",1},{"science-pack-2",1}}, time=20}
     train.order = "c-g-ac"

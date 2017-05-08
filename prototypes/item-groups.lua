@@ -5,7 +5,8 @@ data:extend({
         name = "color-mod",
         order = "z",
         inventory_order = "z",
-        icon = MOD_NAME.."/graphics/color-coding.png"
+        icon = MOD_NAME.."/graphics/color-coding.png",
+        icon_size = 64
     },
     {
         -- row for colored indicator lamps

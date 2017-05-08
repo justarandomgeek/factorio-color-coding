@@ -8,6 +8,8 @@ if ENABLE_LAMPS then
         lamp = util.table.deepcopy(data.raw["lamp"]["small-lamp"])
         lamp.name                      = "small-lamp-"..color
         lamp.icon                      = MOD_NAME.."/graphics/lamp/"..color.."/icon.png"
+        lamp.icon_size                 = 32
+
         lamp.picture_off.filename      = MOD_NAME.."/graphics/lamp/"..color.."/light-off.png"
         lamp.picture_on.filename       = MOD_NAME.."/graphics/lamp/"..color.."/light-on-patch.png"
         lamp.picture_off.shift         = {0,0}

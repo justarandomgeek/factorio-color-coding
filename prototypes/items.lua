@@ -8,6 +8,7 @@ if ENABLE_CONCRETE then
         concrete = util.table.deepcopy(data.raw["item"]["hazard-concrete"])
         concrete.name = "concrete-"..color
         concrete.icon = MOD_NAME.."/graphics/concrete/"..color.."/icon.png"
+        concrete.icon_size = 32
         concrete.place_as_tile.result = "concrete-"..color
         concrete.order = "c-aa"..pad..i.."-"..color.."]"
         concrete.subgroup = "color-concrete"
@@ -54,6 +55,7 @@ if ENABLE_LAMPS then
         lamp = util.table.deepcopy(data.raw["item"]["small-lamp"])
         lamp.name = "small-lamp-"..color
         lamp.icon = MOD_NAME.."/graphics/lamp/"..color.."/icon.png"
+        lamp.icon_size = 32
         lamp.place_result = "small-lamp-"..color
         lamp.order = "l-a"..pad..i.."-"..color.."]"
         lamp.subgroup = "color-lamps"
