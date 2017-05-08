@@ -15,7 +15,7 @@ if ENABLE_CONCRETE then
     for color,rgb in pairs(COLOR_TABLE) do
         table.insert(concrete.effects, { type="unlock-recipe", recipe="concrete-"..color })
     end
-    --table.insert(concrete.effects, { type="unlock-recipe", recipe="fire-hazard-concrete" })
+    table.insert(concrete.effects, { type="unlock-recipe", recipe="fire-hazard-concrete" })
     table.insert(color_technologies, concrete)
 end
 

@@ -28,8 +28,8 @@ COLOR_TABLE["black"  ]={r=0.1, g=0.1, b=0.1}
 -- To add another concrete all you have to do is add an appropriate line here,
 -- then make a new folder in graphics/concrete/ to match and add your texture assets there.
 FIRE_CONCRETE_TABLE = {}
---FIRE_CONCRETE_TABLE["fire-left"   ]={r=1.0, g=0.5, b=0.5}
---FIRE_CONCRETE_TABLE["fire-right"  ]={r=1.0, g=0.5, b=0.5}
+FIRE_CONCRETE_TABLE["fire-left"   ]={r=1.0, g=0.5, b=0.5}
+FIRE_CONCRETE_TABLE["fire-right"  ]={r=1.0, g=0.5, b=0.5}
 
 --  Note that when adding to either table above, you will also need to create/update locale strings in ./locale/en/en.cfg to match.
 
