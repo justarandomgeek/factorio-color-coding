@@ -4,42 +4,56 @@ color_items = {}
 
 if ENABLE_CONCRETE then
     -- colored concrete inventory items
-    function add_concrete(color,rgb,pad,i)
+    function add_concrete(color, group, align)
         concrete = util.table.deepcopy(data.raw["item"]["hazard-concrete"])
         concrete.name = "concrete-"..color
-        concrete.icon = MOD_NAME.."/graphics/concrete/"..color.."/icon.png"
+        concrete.icon = MOD_NAME.."/graphics/concrete/"..TILE_MINE_RESULT[color].."/icon.png"
         concrete.icon_size = 32
-        concrete.place_as_tile.result = "concrete-"..color
-        concrete.order = "c-aa"..pad..i.."-"..color.."]"
-        concrete.subgroup = "color-concrete"
+        concrete.place_as_tile.result = "concrete-"..TILE_MINE_RESULT[color]
+        concrete.order = "c-aa"..align.."-"..color.."]"
+        concrete.subgroup = "color-concrete-"..group
         table.insert(color_items,concrete)
     end
 
     i = 0
-    for color,rgb in pairs(COLOR_TABLE) do
+    for color,_ in pairs(COLOR_TABLE) do
         --ugly numbering/zero padding hack to get the crafting screen to sort chromatically rather than alphabetically
         i = i + 1
         if i < 10 then pad = "0" else pad = "" end
-        add_concrete(color,rgb,pad,i)
+        add_concrete(color, "solid", pad..i)
     end
 
-    table.insert(color_items,
-    {
-      type = "item",
-      name = "fire-hazard-concrete",
-      icon = MOD_NAME.."/graphics/concrete/fire-left/icon.png",
-      flags = {"goes-to-main-inventory"},
-      subgroup = "terrain",
-      order = "b[concrete]-b[fire]",
-      stack_size = 100,
-      place_as_tile =
-      {
-        result = "concrete-fire-left",
-        condition_size = 4,
-        condition = { "water-tile" }
-      }
-    })
+    i = 0
+    for color,_ in pairs(COLOR_DIAGONAL_TABLE) do
+        --ugly numbering/zero padding hack to get the crafting screen to sort chromatically rather than alphabetically
+        i = i + 1
+        if i < 10 then pad = "0" else pad = "" end
+        add_concrete(color, "diagonal", pad..i)
+    end
 
+    i = 0
+    for color,_ in pairs(COLOR_STRIPE_TABLE) do
+        --ugly numbering/zero padding hack to get the crafting screen to sort chromatically rather than alphabetically
+        i = i + 1
+        if i < 10 then pad = "0" else pad = "" end
+        add_concrete(color, "stripe", pad..i)
+    end
+
+    i = 0
+    for color,_ in pairs(SPECIALTY_DIAGONAL_TABLE) do
+        --ugly numbering/zero padding hack to get the crafting screen to sort chromatically rather than alphabetically
+        i = i + 1
+        if i < 10 then pad = "0" else pad = "" end
+        add_concrete(color, "diagonal-specialty", pad..i)
+    end
+
+    i = 0
+    for color,_ in pairs(SPECIALTY_STRIPE_TABLE) do
+        --ugly numbering/zero padding hack to get the crafting screen to sort chromatically rather than alphabetically
+        i = i + 1
+        if i < 10 then pad = "0" else pad = "" end
+        add_concrete(color, "stripe-specialty", pad..i)
+    end
 end
 
 if ENABLE_LAMPS then
@@ -48,7 +62,7 @@ if ENABLE_LAMPS then
 
     -- colored indicator lamp inventory items
     i = 0
-    for color,rgb in pairs(COLOR_TABLE) do
+    for color,rgb in pairs(COLOR_SOLID_TABLE) do
         --ugly numbering/zero padding hack to get the crafting screen to sort chromatically rather than alphabetically
         i = i + 1
         if i < 10 then pad = "0" else pad = "" end

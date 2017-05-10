@@ -4,7 +4,7 @@ color_recipes = {}
 
 if ENABLE_CONCRETE then
     -- recipes for colored concrete
-    function add_concrete(color,rgb)
+    function add_concrete(color)
         concrete = {}
         concrete.type = "recipe"
         concrete.name = "concrete-"..color
@@ -17,28 +17,13 @@ if ENABLE_CONCRETE then
     end
 
     for color,rgb in pairs(COLOR_TABLE) do
-        add_concrete(color,rgb)
+        add_concrete(color, color)
     end
-
-    table.insert(color_recipes,
-    {
-    type = "recipe",
-    name = "fire-hazard-concrete",
-    energy_required = 0.25,
-    enabled = false,
-    category = "crafting",
-    ingredients =
-    {
-      {"concrete", 10}
-    },
-    result= "fire-hazard-concrete",
-    result_count = 10
-    })
 end
 
 if ENABLE_LAMPS then
     -- recipes for colored lamps
-    for color,rgb in pairs(COLOR_TABLE) do
+    for color,rgb in pairs(COLOR_SOLID_TABLE) do
         lamp = {}
         lamp.type = "recipe"
         lamp.name = "small-lamp-"..color

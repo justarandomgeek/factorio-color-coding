@@ -4,7 +4,7 @@ color_entities = {}
 
 if ENABLE_LAMPS then
     -- create new colored indicator lamp entities
-    for color,rgb in pairs(COLOR_TABLE) do
+    for color,rgb in pairs(COLOR_SOLID_TABLE) do
         lamp = util.table.deepcopy(data.raw["lamp"]["small-lamp"])
         lamp.name                      = "small-lamp-"..color
         lamp.icon                      = MOD_NAME.."/graphics/lamp/"..color.."/icon.png"

@@ -4,11 +4,11 @@ color_tiles = {}
 
 if ENABLE_CONCRETE then
     -- create new concrete tiles
-    function add_concrete(color,rgb)
+    function add_concrete(color, mineresult, rgb, next_direction)
         concrete = util.table.deepcopy(data.raw["tile"]["concrete"])
         concrete.name                           = "concrete-"..color
-        if NEXT_COLOR_TABLE[color] then
-          concrete.next_direction                 = "concrete-"..NEXT_COLOR_TABLE[color]
+        if next_direction then
+            concrete.next_direction             = "concrete-"..next_direction
         end
         concrete.variants.main[1].picture       = MOD_NAME.."/graphics/concrete/"..color.."/concrete1.png"
         concrete.variants.main[2].picture       = MOD_NAME.."/graphics/concrete/"..color.."/concrete2.png"
@@ -23,17 +23,22 @@ if ENABLE_CONCRETE then
             g = (rgb["g"] * 0.5),
             b = (rgb["b"] * 0.5)
         }
-        concrete.minable["result"] = TILE_MINE_RESULT[color]
+        concrete.minable["result"] = "concrete-"..mineresult
 
         table.insert(color_tiles,concrete)
     end
 
     for color,rgb in pairs(COLOR_TABLE) do
-        add_concrete(color,rgb)
-    end
-
-    for color,rgb in pairs(FIRE_CONCRETE_TABLE) do
-        add_concrete(color,rgb)
+        if not NEXT_TABLE[color] then
+            add_concrete(color, TILE_MINE_RESULT[color], rgb)
+        else
+            i = 0
+            for i=1,#NEXT_TABLE[color] do
+                j=i+i
+                if j > #NEXT_TABLE[color] then j = 1 end
+                add_concrete(NEXT_TABLE[color][i], color, rgb, NEXT_TABLE[color][j])
+            end
+        end
     end
 end
 

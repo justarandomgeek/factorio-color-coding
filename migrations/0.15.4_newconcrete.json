@@ -1,0 +1,15 @@
+{
+  "item":
+  [
+    ["fire-hazard-concrete", "concrete-fire-hazard-diagonal"],
+  ],
+  "recipe":
+  [
+    ["fire-hazard-concrete", "concrete-fire-hazard-diagonal"],
+  ],
+  "tile":
+  [
+    ["concrete-fire-left",  "concrete-fire-hazard-diagonal-left"],
+    ["concrete-fire-right", "concrete-fire-hazard-diagonal-right"],
+  ],
+}
