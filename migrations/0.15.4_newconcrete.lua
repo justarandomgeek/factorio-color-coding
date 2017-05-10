@@ -11,6 +11,7 @@ for _,f in pairs(game.forces) do
         f.recipes['concrete-white-diagonal'].enabled=true
         f.recipes['concrete-black-diagonal'].enabled=true
         f.recipes['concrete-fire-hazard-diagonal'].enabled=true
+        f.recipes['concrete-bio-hazard-diagonal'].enabled=true
 
         f.recipes['concrete-red-stripe'].enabled=true
         f.recipes['concrete-orange-stripe'].enabled=true
@@ -23,5 +24,6 @@ for _,f in pairs(game.forces) do
         f.recipes['concrete-white-stripe'].enabled=true
         f.recipes['concrete-black-stripe'].enabled=true
         f.recipes['concrete-fire-hazard-stripe'].enabled=true
+        f.recipes['concrete-bio-hazard-stripe'].enabled=true
     end
 end

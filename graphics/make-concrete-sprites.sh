@@ -78,21 +78,39 @@ for f in $(ls -1 $source) ; do output=black-stripe-horizontal ;   mkdir -p $conc
 
 #Specialty Colors
 echo Specialty Colors
-C=50
 
 echo Fire-Hazard
+SC=50
 for f in $(ls -1 $source) ; do
-    output=fire-hazard-diagonal-left
+    name=fire-hazard
+    output=$name-diagonal-left
     mkdir -p $concrete/$output
-    convert $source/$f \( +clone -fill "rgb(255,0,0)"   -colorize $C,$C,$C,0 -level "0%,100%,0.8" \) \( $mask/diagonal.png -alpha extract            \) -compose SrcIn -composite $concrete/$output/$f
-    output=fire-hazard-diagonal-right
+    convert $source/$f \( +clone -fill "rgb(255,0,0)"   -colorize $SC,$SC,$SC,0 -level "0%,100%,0.8" \) \( $mask/diagonal.png -alpha extract          \) -compose SrcIn -composite $concrete/$output/$f
+    output=$name-diagonal-right
     mkdir -p $concrete/$output
-    convert $source/$f \( +clone -fill "rgb(255,0,0)"   -colorize $C,$C,$C,0 -level "0%,100%,0.8" \) \( $mask/diagonal.png -alpha extract -flop      \) -compose SrcIn -composite $concrete/$output/$f
-    output=fire-hazard-stripe-vertical
+    convert $source/$f \( +clone -fill "rgb(255,0,0)"   -colorize $SC,$SC,$SC,0 -level "0%,100%,0.8" \) \( $mask/diagonal.png -alpha extract -flop    \) -compose SrcIn -composite $concrete/$output/$f
+    output=$name-stripe-vertical
     mkdir -p $concrete/$output
-    convert $source/$f \( +clone -fill "rgb(255,0,0)"   -colorize $C,$C,$C,0 -level "0%,100%,0.8" \) \( $mask/stripe.png -alpha extract            \) -compose SrcIn -composite $concrete/$output/$f
-    output=fire-hazard-stripe-horizontal
+    convert $source/$f \( +clone -fill "rgb(255,0,0)"   -colorize $SC,$SC,$SC,0 -level "0%,100%,0.8" \) \( $mask/stripe.png -alpha extract            \) -compose SrcIn -composite $concrete/$output/$f
+    output=$name-stripe-horizontal
     mkdir -p $concrete/$output
-    convert $source/$f \( +clone -fill "rgb(255,0,0)"   -colorize $C,$C,$C,0 -level "0%,100%,0.8" \) \( $mask/stripe.png -alpha extract -rotate 90 \) -compose SrcIn -composite $concrete/$output/$f
+    convert $source/$f \( +clone -fill "rgb(255,0,0)"   -colorize $SC,$SC,$SC,0 -level "0%,100%,0.8" \) \( $mask/stripe.png -alpha extract -rotate 90 \) -compose SrcIn -composite $concrete/$output/$f
 done
 
+echo Bio-Hazard
+SC=50
+for f in $(ls -1 $source) ; do
+    name=bio-hazard
+    output=$name-diagonal-left
+    mkdir -p $concrete/$output
+    convert $source/$f \( +clone -fill "rgb(0,255,0)"   -colorize $SC,$SC,$SC,0 -level "0%,100%,0.8" \) \( $mask/diagonal.png -alpha extract          \) -compose SrcIn -composite $concrete/$output/$f
+    output=$name-diagonal-right
+    mkdir -p $concrete/$output
+    convert $source/$f \( +clone -fill "rgb(0,255,0)"   -colorize $SC,$SC,$SC,0 -level "0%,100%,0.8" \) \( $mask/diagonal.png -alpha extract -flop    \) -compose SrcIn -composite $concrete/$output/$f
+    output=$name-stripe-vertical
+    mkdir -p $concrete/$output
+    convert $source/$f \( +clone -fill "rgb(0,255,0)"   -colorize $SC,$SC,$SC,0 -level "0%,100%,0.8" \) \( $mask/stripe.png -alpha extract            \) -compose SrcIn -composite $concrete/$output/$f
+    output=$name-stripe-horizontal
+    mkdir -p $concrete/$output
+    convert $source/$f \( +clone -fill "rgb(0,255,0)"   -colorize $SC,$SC,$SC,0 -level "0%,100%,0.8" \) \( $mask/stripe.png -alpha extract -rotate 90 \) -compose SrcIn -composite $concrete/$output/$f
+done

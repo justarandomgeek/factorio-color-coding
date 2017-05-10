@@ -65,6 +65,7 @@ COLOR_STRIPE_TABLE["black-stripe"      ]={r=0.1, g=0.1, b=0.1}
 --
 SPECIALTY_DIAGONAL_TABLE = {}
 SPECIALTY_DIAGONAL_TABLE["fire-hazard-diagonal"]={r=1.0, g=0.5, b=0.5}
+SPECIALTY_DIAGONAL_TABLE["bio-hazard-diagonal"]={r=0.5, g=1.0, b=0.5}
 
 --
 --  This table adds textured concretes only (does not affect lamps)
@@ -73,6 +74,7 @@ SPECIALTY_DIAGONAL_TABLE["fire-hazard-diagonal"]={r=1.0, g=0.5, b=0.5}
 --
 SPECIALTY_STRIPE_TABLE = {}
 SPECIALTY_STRIPE_TABLE["fire-hazard-stripe"]={r=1.0, g=0.5, b=0.5}
+SPECIALTY_STRIPE_TABLE["bio-hazard-stripe"]={r=0.5, g=1.0, b=0.5}
 
 --  Note that when adding to either table above, you will also need to create/update locale strings in ./locale/en/en.cfg to match.
 
@@ -116,6 +118,7 @@ NEXT_TABLE["magenta-diagonal"     ]={"magenta-diagonal-left", "magenta-diagonal-
 NEXT_TABLE["white-diagonal"       ]={"white-diagonal-left", "white-diagonal-right"}
 NEXT_TABLE["black-diagonal"       ]={"black-diagonal-left", "black-diagonal-right"}
 NEXT_TABLE["fire-hazard-diagonal" ]={"fire-hazard-diagonal-left", "fire-hazard-diagonal-right"}
+NEXT_TABLE["bio-hazard-diagonal"  ]={"bio-hazard-diagonal-left", "bio-hazard-diagonal-right"}
 
 NEXT_TABLE["red-stripe"          ]={"red-stripe-vertical", "red-stripe-horizontal"}
 NEXT_TABLE["orange-stripe"       ]={"orange-stripe-vertical", "orange-stripe-horizontal"}
@@ -128,6 +131,7 @@ NEXT_TABLE["magenta-stripe"      ]={"magenta-stripe-vertical", "magenta-stripe-h
 NEXT_TABLE["white-stripe"        ]={"white-stripe-vertical", "white-stripe-horizontal"}
 NEXT_TABLE["black-stripe"        ]={"black-stripe-vertical", "black-stripe-horizontal"}
 NEXT_TABLE["fire-hazard-stripe"  ]={"fire-hazard-stripe-vertical", "fire-hazard-stripe-horizontal"}
+NEXT_TABLE["bio-hazard-stripe"   ]={"bio-hazard-stripe-vertical", "bio-hazard-stripe-horizontal"}
 
 
 TILE_MINE_RESULT={}
