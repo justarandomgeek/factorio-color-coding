@@ -1,0 +1,28 @@
+{
+  "entity":
+  [
+    ["diesel-locomotive-red",     "locomotive"],
+    ["diesel-locomotive-orange",  "locomotive"],
+    ["diesel-locomotive-yellow",  "locomotive"],
+    ["diesel-locomotive-green",   "locomotive"],
+    ["diesel-locomotive-cyan",    "locomotive"],
+    ["diesel-locomotive-blue",    "locomotive"],
+    ["diesel-locomotive-purple",  "locomotive"],
+    ["diesel-locomotive-magenta", "locomotive"],
+    ["diesel-locomotive-black",   "locomotive"],
+    ["diesel-locomotive-white",   "locomotive"]
+  ],
+  "item":
+  [
+    ["diesel-locomotive-red",     "locomotive"],
+    ["diesel-locomotive-orange",  "locomotive"],
+    ["diesel-locomotive-yellow",  "locomotive"],
+    ["diesel-locomotive-green",   "locomotive"],
+    ["diesel-locomotive-cyan",    "locomotive"],
+    ["diesel-locomotive-blue",    "locomotive"],
+    ["diesel-locomotive-purple",  "locomotive"],
+    ["diesel-locomotive-magenta", "locomotive"],
+    ["diesel-locomotive-black",   "locomotive"],
+    ["diesel-locomotive-white",   "locomotive"],
+  ],
+}
