@@ -23,32 +23,7 @@ COLOR_TABLE["magenta"]={r=1.0, g=0.1, b=1.0}
 COLOR_TABLE["white"  ]={r=1.0, g=1.0, b=1.0}
 COLOR_TABLE["black"  ]={r=0.1, g=0.1, b=0.1}
 
--- This table adds textured concretes only (does not affect lamps or trains)
--- The RGB values control the color of the pixels on the minimap for each type of concrete
--- To add another concrete all you have to do is add an appropriate line here,
--- then make a new folder in graphics/concrete/ to match and add your texture assets there.
-FIRE_CONCRETE_TABLE = {}
-FIRE_CONCRETE_TABLE["fire-left"   ]={r=1.0, g=0.5, b=0.5}
-FIRE_CONCRETE_TABLE["fire-right"  ]={r=1.0, g=0.5, b=0.5}
-
---  Note that when adding to either table above, you will also need to create/update locale strings in ./locale/en/en.cfg to match.
-
-
-
--- This table controls what color is "next" when rotating to change colors.
-NEXT_COLOR_TABLE = {}
-
-NEXT_COLOR_TABLE["fire-left" ]="fire-right"
-NEXT_COLOR_TABLE["fire-right"]="fire-left"
-
-TILE_MINE_RESULT={}
-for color,_ in pairs(COLOR_TABLE) do
-  TILE_MINE_RESULT[color]="concrete-"..color
-end
-
-TILE_MINE_RESULT["fire-left" ]="fire-hazard-concrete"
-TILE_MINE_RESULT["fire-right"]="fire-hazard-concrete"
-
+--  Note that when adding to the table above, you will also need to create/update locale strings in ./locale/en/en.cfg to match.
 
 --COMPONENT TOGGLES
 -- WARNING: CHANGING THESE AFTER THE MOD HAS BEEN INSTALLED MAY PREVENT OLD WORLDS FROM LOADING.
@@ -61,7 +36,6 @@ ENABLE_CONCRETE = true             -- set to false to disable colored and textur
 --LIGHTING SETTINGS
 LAMP_INTENSITY              = 0.5  -- How bright the lights appear to be. 0.0 = no glow, 4.0 = blinding. Default = 0.5
 LAMP_SATURATION             = 0.2  -- How colorful the lights are. Keep low to avoid oversaturation. Default 0.2
-LAMP_ALPHA                  = 0    -- Transparency of light "halos". 0 = transparent, 1 = opaque (looks weird). Default 0.
 LAMP_FLOOD_DIAMETER         = 5    -- Diameter in tiles of the area lit by the lamps. Default 5, (stock lamps are 40).
 
 -- Overrides color of black indicator lamp without messing up black concrete's color on the map

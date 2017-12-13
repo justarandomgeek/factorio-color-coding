@@ -19,21 +19,6 @@ if ENABLE_CONCRETE then
     for color,rgb in pairs(COLOR_TABLE) do
         add_concrete(color,rgb)
     end
-
-    table.insert(color_recipes,
-    {
-    type = "recipe",
-    name = "fire-hazard-concrete",
-    energy_required = 0.25,
-    enabled = false,
-    category = "crafting",
-    ingredients =
-    {
-      {"concrete", 10}
-    },
-    result= "fire-hazard-concrete",
-    result_count = 10
-    })
 end
 
 if ENABLE_LAMPS then
