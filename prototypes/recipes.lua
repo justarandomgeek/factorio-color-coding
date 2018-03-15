@@ -5,7 +5,7 @@ color_recipes = {}
 if ENABLE_CONCRETE then
     -- recipes for colored concrete
     function add_concrete(color,rgb)
-        concrete = {}
+        local concrete = {}
         concrete.type = "recipe"
         concrete.name = "concrete-"..color
         concrete.enabled = false
@@ -14,6 +14,16 @@ if ENABLE_CONCRETE then
         concrete.result = "concrete-"..color
         concrete.result_count = CONCRETE_BATCH_SIZE
         table.insert(color_recipes,concrete)
+
+        local rconcrete = {}
+        rconcrete.type = "recipe"
+        rconcrete.name = "refined-concrete-"..color
+        rconcrete.enabled = false
+        rconcrete.ingredients = {{"refined-concrete",CONCRETE_BATCH_SIZE}}
+        rconcrete.energy_required = CRAFTING_TIME_CONCRETE
+        rconcrete.result = "refined-concrete-"..color
+        rconcrete.result_count = CONCRETE_BATCH_SIZE
+        table.insert(color_recipes,rconcrete)
     end
 
     for color,rgb in pairs(COLOR_TABLE) do
