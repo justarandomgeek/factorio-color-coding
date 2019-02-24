@@ -7,7 +7,6 @@ if ENABLE_CONCRETE then
     function add_concrete(color,rgb,pad,i)
         local concrete = util.table.deepcopy(data.raw["item"]["hazard-concrete"])
         concrete.name = "concrete-"..color
-        concrete.flags = {"goes-to-quickbar"}
         concrete.icon = MOD_NAME.."/graphics/concrete/"..color.."/icon.png"
         concrete.icon_size = 32
         concrete.place_as_tile.result = "concrete-"..color
@@ -17,7 +16,6 @@ if ENABLE_CONCRETE then
 
         local rconcrete = util.table.deepcopy(data.raw["item"]["refined-hazard-concrete"])
         rconcrete.name = "refined-concrete-"..color
-        rconcrete.flags = {"goes-to-quickbar"}
         rconcrete.icon = MOD_NAME.."/graphics/concrete/"..color.."/refined-icon.png"
         rconcrete.icon_size = 32
         rconcrete.place_as_tile.result = "refined-concrete-"..color

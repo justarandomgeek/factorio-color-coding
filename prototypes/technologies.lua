@@ -9,7 +9,7 @@ if ENABLE_CONCRETE then
     concrete.icon = MOD_NAME.."/graphics/concrete/cyan/icon.png"
     concrete.icon_size = 32
     concrete.prerequisites = {"concrete"}
-    concrete.unit = {count=50, ingredients={{"science-pack-1",1},{"science-pack-2",1}}, time=30}
+    concrete.unit = {count=50, ingredients={{"automation-science-pack",1},{"logistic-science-pack",1}}, time=30}
     concrete.order = "c-c-cc"
     concrete.effects = {}
     for color,rgb in pairs(COLOR_TABLE) do
@@ -26,7 +26,7 @@ if ENABLE_LAMPS then
     lamp.icon = MOD_NAME.."/graphics/lamp/cyan/icon.png"
     lamp.icon_size = 32
     lamp.prerequisites = {"optics", "circuit-network"}
-    lamp.unit = {count=20, ingredients={{"science-pack-1",1},{"science-pack-2",1}}, time=15}
+    lamp.unit = {count=20, ingredients={{"automation-science-pack",1},{"logistic-science-pack",1}}, time=15}
     lamp.order = "a-h-ac"
     lamp.effects = {}
     for color,rgb in pairs(COLOR_TABLE) do
