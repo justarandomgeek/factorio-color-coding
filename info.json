@@ -4,7 +4,7 @@
   "title": "Color Coding",
   "author": "D3Phoenix, justarandomgeek",
   "homepage": "",
-  "factorio_version": "0.11",
+  "factorio_version": "0.17",
   "dependencies": ["base >= 0.17.0"],
   "description": "Adds color-coded indicator lamps, and concrete."
 }
