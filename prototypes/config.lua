@@ -39,7 +39,7 @@ LAMP_SATURATION             = 0.2  -- How colorful the lights are. Keep low to a
 LAMP_FLOOD_DIAMETER         = 5    -- Diameter in tiles of the area lit by the lamps. Default 5, (stock lamps are 40).
 
 -- Overrides color of black indicator lamp without messing up black concrete's color on the map
-LAMP_BLACKLIGHT_COLOR       = {r=0.75, g=0.5, b=1.0, a=LAMP_ALPHA}
+LAMP_BLACKLIGHT_COLOR       = {r=0.75, g=0.5, b=1.0}
 
 
 -- CRAFTING SETTINGS
