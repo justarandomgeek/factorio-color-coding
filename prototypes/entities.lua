@@ -13,6 +13,7 @@ if ENABLE_LAMPS then
     lamp = util.table.deepcopy(data.raw["lamp"]["small-lamp"])
     lamp.name                      = "small-lamp-"..color
     lamp.icon                      = MOD_NAME.."/graphics/lamp/"..color.."/icon.png"
+    lamp.icon_size = 32
     lamp.signal_to_color_mapping   = nil
 
     lamp.picture_off.layers[1].filename            = MOD_NAME.."/graphics/lamp/"..color.."/lamp.png"

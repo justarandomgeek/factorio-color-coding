@@ -36,6 +36,7 @@ end
 if ENABLE_LAMPS then
     -- replace stock lamp icon with "brighter" one to make sure it's consistent with, but distinct from, the white indicator lamps
     data.raw["item"]["small-lamp"].icon = MOD_NAME.."/graphics/lamp/stock/icon.png"
+    data.raw["item"]["small-lamp"].icon_size = 32
 
     -- colored indicator lamp inventory items
     i = 0
