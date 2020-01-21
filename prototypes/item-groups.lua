@@ -5,7 +5,7 @@ data:extend({
         name = "color-mod",
         order = "z",
         inventory_order = "z",
-        icon = MOD_NAME.."/graphics/color-coding.png",
+        icon = "__color-coding__/graphics/color-coding.png",
         icon_size = 64
     },
     {
