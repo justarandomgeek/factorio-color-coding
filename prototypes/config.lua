@@ -9,17 +9,18 @@
 --  To rename a color, simply rename it below. Note: all items of the old color name will disappear from your saves!
 --  To disable a color, comment it (--) out. Again: all items of that color will disappear from your saves!
 --
-COLOR_TABLE = {}
-COLOR_TABLE["red"    ]={r=1.0, g=0.1, b=0.1}
-COLOR_TABLE["orange" ]={r=1.0, g=0.5, b=0.1}
-COLOR_TABLE["yellow" ]={r=1.0, g=1.0, b=0.1}
-COLOR_TABLE["green"  ]={r=0.1, g=1.0, b=0.1}
-COLOR_TABLE["cyan"   ]={r=0.1, g=1.0, b=1.0}
-COLOR_TABLE["blue"   ]={r=0.1, g=0.1, b=1.0}
-COLOR_TABLE["purple" ]={r=0.5, g=0.1, b=1.0}
-COLOR_TABLE["magenta"]={r=1.0, g=0.1, b=1.0}
-COLOR_TABLE["white"  ]={r=1.0, g=1.0, b=1.0}
-COLOR_TABLE["black"  ]={r=0.1, g=0.1, b=0.1}
+COLOR_TABLE = {
+    red     ={r=1.0, g=0.1, b=0.1},
+    orange  ={r=1.0, g=0.5, b=0.1},
+    yellow  ={r=1.0, g=1.0, b=0.1},
+    green   ={r=0.1, g=1.0, b=0.1},
+    cyan    ={r=0.1, g=1.0, b=1.0},
+    blue    ={r=0.1, g=0.1, b=1.0},
+    purple  ={r=0.5, g=0.1, b=1.0},
+    magenta ={r=1.0, g=0.1, b=1.0},
+    white   ={r=1.0, g=1.0, b=1.0},
+    black   ={r=0.1, g=0.1, b=0.1},
+}
 
 --  Note that when adding to the table above, you will also need to create/update locale strings in ./locale/en/en.cfg to match.
 
