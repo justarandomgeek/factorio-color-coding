@@ -13,6 +13,7 @@ for color,rgb in pairs(COLOR_TABLE) do
   lamp.name                      = "small-lamp-"..color
   lamp.icon                      = "__color-coding__/graphics/lamp/"..color.."/icon.png"
   lamp.icon_size = 32
+  lamp.icon_mipmaps = 1
   lamp.signal_to_color_mapping   = nil
 
   lamp.picture_off.layers[1].filename            = "__color-coding__/graphics/lamp/"..color.."/lamp.png"
