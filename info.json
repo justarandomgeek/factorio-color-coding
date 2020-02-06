@@ -8,6 +8,6 @@
   "dependencies": ["base"],
   "description": "Adds color-coded indicator lamps, and concrete.",
   "package": {
-    "ignore": ["*.zip", "*.sh"]
+    "ignore": ["**/*.sh"]
   }
 }
