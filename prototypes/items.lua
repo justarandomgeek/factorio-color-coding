@@ -1,4 +1,4 @@
-require("prototypes.config")
+local config = require("prototypes.config")
 
 color_items = {}
 
@@ -26,7 +26,7 @@ function add_concrete(color,rgb,pad,i)
 end
 
 i = 0
-for color,rgb in pairs(COLOR_TABLE) do
+for color,rgb in pairs(config.colors) do
     --ugly numbering/zero padding hack to get the crafting screen to sort chromatically rather than alphabetically
     i = i + 1
     if i < 10 then pad = "0" else pad = "" end
@@ -40,7 +40,7 @@ data.raw["item"]["small-lamp"].icon_mipmaps = 1
 
 -- colored indicator lamp inventory items
 i = 0
-for color,rgb in pairs(COLOR_TABLE) do
+for color,rgb in pairs(config.colors) do
     --ugly numbering/zero padding hack to get the crafting screen to sort chromatically rather than alphabetically
     i = i + 1
     if i < 10 then pad = "0" else pad = "" end

@@ -1,4 +1,4 @@
-require("prototypes.config")
+local config = require("prototypes.config")
 
 color_tiles = {}
 
@@ -54,7 +54,7 @@ function add_concrete(color,rgb)
     table.insert(color_tiles,rconcrete)
 end
 
-for color,rgb in pairs(COLOR_TABLE) do
+for color,rgb in pairs(config.colors) do
     add_concrete(color,rgb)
 end
 

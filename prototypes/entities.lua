@@ -1,12 +1,12 @@
-require("prototypes.config")
+local config = require("prototypes.config")
 
 color_entities = {}
 
 -- create new colored indicator lamp entities
-for color,rgb in pairs(COLOR_TABLE) do
+for color,rgb in pairs(config.colors) do
   if color == "black" then
       --override blacklight color without affecting global definition of black
-      rgb = LAMP_BLACKLIGHT_COLOR
+      rgb = config.blacklight
   end
 
   lamp = util.table.deepcopy(data.raw["lamp"]["small-lamp"])
@@ -22,19 +22,15 @@ for color,rgb in pairs(COLOR_TABLE) do
   lamp.picture_on.hr_version.filename = "__color-coding__/graphics/lamp/"..color.."/hr-lamp-light.png"
   
   lamp.energy_usage_per_tick     = "250W"
-  lamp.light["size"]             = LAMP_FLOOD_DIAMETER
-  lamp.light["intensity"]        = LAMP_INTENSITY
+  lamp.light["size"]             = 5
+  lamp.light["intensity"]        = 0.5
   lamp.circuit_wire_max_distance = 10
   lamp.light["color"]            = {
-      r                          = rgb["r"] * LAMP_SATURATION,
-      g                          = rgb["g"] * LAMP_SATURATION,
-      b                          = rgb["b"] * LAMP_SATURATION,
+      r                          = rgb["r"] * 0.2,
+      g                          = rgb["g"] * 0.2,
+      b                          = rgb["b"] * 0.2,
   }
-  if UNCRAFT_ITEMS_ON_PICKUP then
-      lamp.minable["result"]  = "small-lamp"
-  else
-      lamp.minable["result"]  = "small-lamp-"..color
-  end
+  lamp.minable["result"]  = "small-lamp-"..color
   table.insert(color_entities,lamp)
 end
 

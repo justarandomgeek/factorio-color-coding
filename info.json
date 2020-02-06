@@ -6,5 +6,8 @@
   "homepage": "",
   "factorio_version": "0.18",
   "dependencies": ["base"],
-  "description": "Adds color-coded indicator lamps, and concrete."
+  "description": "Adds color-coded indicator lamps, and concrete.",
+  "package": {
+    "ignore": ["*.zip", "*.sh"]
+  }
 }
