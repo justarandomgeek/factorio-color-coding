@@ -6,7 +6,7 @@ data:extend({
         order = "z",
         inventory_order = "z",
         icon = "__color-coding__/graphics/color-coding.png",
-        icon_size = 64
+        icon_size = 128
     },
     {
         -- row for colored indicator lamps

@@ -5,8 +5,8 @@ color_technologies = {}
 -- colored concrete tech
 concrete = util.table.deepcopy(data.raw["technology"]["railway"])
 concrete.name = "colored-concrete"
-concrete.icon = "__color-coding__/graphics/concrete/cyan/icon.png"
-concrete.icon_size = 32
+concrete.icon = "__color-coding__/graphics/colored-concrete.png"
+concrete.icon_size = 128
 concrete.prerequisites = {"concrete"}
 concrete.unit = {count=50, ingredients={{"automation-science-pack",1},{"logistic-science-pack",1}}, time=30}
 concrete.order = "c-c-cc"
@@ -20,8 +20,8 @@ table.insert(color_technologies, concrete)
 -- colored indicator lamps tech
 lamp = util.table.deepcopy(data.raw["technology"]["optics"])
 lamp.name = "colored-lamps"
-lamp.icon = "__color-coding__/graphics/lamp/cyan/icon.png"
-lamp.icon_size = 32
+lamp.icon = "__color-coding__/graphics/colored-lamps.png"
+lamp.icon_size = 128
 lamp.prerequisites = {"optics", "circuit-network"}
 lamp.unit = {count=20, ingredients={{"automation-science-pack",1},{"logistic-science-pack",1}}, time=15}
 lamp.order = "a-h-ac"
