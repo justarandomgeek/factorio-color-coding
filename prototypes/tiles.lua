@@ -13,17 +13,9 @@ function add_concrete(color,rgb)
     else
         concrete.variants.material_background.picture = "__base__/graphics/terrain/concrete/concrete.png"
         concrete.variants.material_background.hr_version.picture = "__base__/graphics/terrain/concrete/hr-concrete.png"
-        concrete.tint = {
-            r = ((rgb["r"]+1)/2),
-            g = ((rgb["g"]+1)/2),
-            b = ((rgb["b"]+1)/2)
-        }
+        concrete.tint = rgb.chat_color
     end
-    concrete.map_color = {
-        r = (rgb["r"] * 0.5),
-        g = (rgb["g"] * 0.5),
-        b = (rgb["b"] * 0.5)
-    }
+    concrete.map_color = rgb.player_color
     concrete.minable["result"] = "concrete-" .. color
 
     table.insert(color_tiles,concrete)
@@ -38,16 +30,13 @@ function add_concrete(color,rgb)
     else
         rconcrete.variants.material_background.picture = "__base__/graphics/terrain/concrete/refined-concrete.png"
         rconcrete.variants.material_background.hr_version.picture = "__base__/graphics/terrain/concrete/hr-refined-concrete.png"
-        rconcrete.tint = {
-            r = ((rgb["r"]+1)/2),
-            g = ((rgb["g"]+1)/2),
-            b = ((rgb["b"]+1)/2)
-        }
+        rconcrete.tint = rgb.chat_color
     end
     rconcrete.map_color = {
-        r = (rgb["r"] * 0.5),
-        g = (rgb["g"] * 0.5),
-        b = (rgb["b"] * 0.5)
+        r = (rgb.player_color["r"] * 0.5),
+        g = (rgb.player_color["g"] * 0.5),
+        b = (rgb.player_color["b"] * 0.5),
+        a = rgb.player_color["a"]
     }
     rconcrete.minable["result"] = "refined-concrete-" .. color
 
