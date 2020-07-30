@@ -59,12 +59,22 @@ for color,rgb in pairs(config.colors) do
     lamp = util.table.deepcopy(data.raw["item"]["small-lamp"])
     lamp.name = "small-lamp-"..color
     lamp.icons = {
-        {
-            icon = lamp.icon,
-            icon_mipmaps = lamp.icon_mipmaps,
-            icon_size = lamp.icon_size,
-            tint = rgb.player_color
+      {
+        icon = "__base__/graphics/icons/small-lamp.png",
+        icon_mipmaps = 4,
+        icon_size = 64,
+      },
+      {
+        icon = "__color-coding__/graphics/lamp/small-lamp-bulb.png",
+        icon_mipmaps = 4,
+        icon_size = 64,
+        tint = {
+          r = rgb.player_color["r"] * 0.9,
+          g = rgb.player_color["g"] * 0.9,
+          b = rgb.player_color["b"] * 0.9,
+          a = 0.5 + 0.5*rgb.player_color["a"],
         }
+      }
     }
     lamp.icon = nil
     lamp.icon_mipmaps = nil

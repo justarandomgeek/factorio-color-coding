@@ -8,10 +8,20 @@ for color,rgb in pairs(config.colors) do
   lamp.name                      = "small-lamp-"..color
   lamp.icons = {
     {
-      icon = lamp.icon,
-      icon_mipmaps = lamp.icon_mipmaps,
-      icon_size = lamp.icon_size,
-      tint = rgb.player_color
+      icon = "__base__/graphics/icons/small-lamp.png",
+      icon_mipmaps = 4,
+      icon_size = 64,
+    },
+    {
+      icon = "__color-coding__/graphics/lamp/small-lamp-bulb.png",
+      icon_mipmaps = 4,
+      icon_size = 64,
+      tint = {
+        r = rgb.player_color["r"] * 0.9,
+        g = rgb.player_color["g"] * 0.9,
+        b = rgb.player_color["b"] * 0.9,
+        a = 0.5 + 0.5*rgb.player_color["a"],
+      }
     }
   }
   lamp.icon = nil
@@ -19,12 +29,62 @@ for color,rgb in pairs(config.colors) do
   lamp.icon_size = nil
   lamp.signal_to_color_mapping   = nil
 
+  lamp.picture_off = {
+    layers = {
+      {
+        filename = "__color-coding__/graphics/lamp/lamp.png",
+        priority = "high",
+        width = 42,
+        height = 36,
+        frame_count = 1,
+        axially_symmetrical = false,
+        direction_count = 1,
+        shift = util.by_pixel(0,3),
+        hr_version =
+        {
+          filename = "__color-coding__/graphics/lamp/hr-lamp.png",
+          priority = "high",
+          width = 83,
+          height = 70,
+          frame_count = 1,
+          axially_symmetrical = false,
+          direction_count = 1,
+          shift = util.by_pixel(0.25,3),
+          scale = 0.5
+        }
+      },
+      {
+        filename = "__color-coding__/graphics/lamp/lamp-bulb.png",
+        priority = "high",
+        width = 42,
+        height = 36,
+        frame_count = 1,
+        axially_symmetrical = false,
+        direction_count = 1,
+        shift = util.by_pixel(0,3),
+        hr_version =
+        {
+          filename = "__color-coding__/graphics/lamp/hr-lamp-bulb.png",
+          priority = "high",
+          width = 83,
+          height = 70,
+          frame_count = 1,
+          axially_symmetrical = false,
+          direction_count = 1,
+          shift = util.by_pixel(0.25,3),
+          scale = 0.5
+        }
+      },
+      lamp.picture_off.layers[2] -- shadow
+    }
+  }
+
   if color == "black" then
     --override blacklight color without affecting global definition of black
     lamp.picture_on.tint = config.blacklight.on_tint
     lamp.picture_on.hr_version.tint = config.blacklight.on_tint
-    lamp.picture_off.layers[1].tint = config.blacklight.off_tint
-    lamp.picture_off.layers[1].hr_version.tint = config.blacklight.off_tint
+    lamp.picture_off.layers[2].tint = config.blacklight.off_tint
+    lamp.picture_off.layers[2].hr_version.tint = config.blacklight.off_tint
   else
     local tint = {
       r = rgb.player_color["r"],
@@ -34,8 +94,8 @@ for color,rgb in pairs(config.colors) do
     }
     lamp.picture_on.tint = tint
     lamp.picture_on.hr_version.tint = tint
-    lamp.picture_off.layers[1].tint = tint
-    lamp.picture_off.layers[1].hr_version.tint = tint
+    lamp.picture_off.layers[2].tint = tint
+    lamp.picture_off.layers[2].hr_version.tint = tint
   end
   
   lamp.energy_usage_per_tick     = "250W"
