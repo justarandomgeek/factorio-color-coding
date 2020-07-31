@@ -9,17 +9,33 @@ data:extend({
         icon_size = 128
     },
     {
-        -- row for colored indicator lamps
         type = "item-subgroup",
         name = "color-lamps",
         group = "color-mod",
         order = "l",
     },
     {
-        -- row for colored concretes
+        type = "item-subgroup",
+        name = "color-bricks",
+        group = "color-mod",
+        order = "w",
+    },
+    {
         type = "item-subgroup",
         name = "color-concrete",
         group = "color-mod",
         order = "x",
-    }
+    },
+    {
+        type = "item-subgroup",
+        name = "color-refined-concrete",
+        group = "color-mod",
+        order = "y",
+    },
+    {
+        type = "item-subgroup",
+        name = "color-walls",
+        group = "color-mod",
+        order = "z",
+    },
 })

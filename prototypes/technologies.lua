@@ -1,34 +1,29 @@
 local config = require("prototypes.config")
 
-color_technologies = {}
+local color_technologies = {}
 
--- colored concrete tech
-concrete = util.table.deepcopy(data.raw["technology"]["railway"])
-concrete.name = "colored-concrete"
-concrete.icon = "__color-coding__/graphics/colored-concrete.png"
-concrete.icon_size = 128
-concrete.prerequisites = {"concrete"}
-concrete.unit = {count=50, ingredients={{"automation-science-pack",1},{"logistic-science-pack",1}}, time=30}
-concrete.order = "c-c-cc"
-concrete.effects = {}
-for color,rgb in pairs(config.colors) do
-    table.insert(concrete.effects, { type="unlock-recipe", recipe="concrete-"..color })
-    table.insert(concrete.effects, { type="unlock-recipe", recipe="refined-concrete-"..color })
+local function tech(name,prereq,count,time,order,unlocks)
+  local t = {
+    type = "technology",
+    name = name,
+    icon = "__color-coding__/graphics/"..name..".png",
+    icon_size = 128,
+    prerequisites = prereq,
+    unit = {count=count, ingredients={{"automation-science-pack",1},{"logistic-science-pack",1}}, time=time},
+    order = order,
+    effects = {},
+  }
+  for color,rgb in pairs(config.colors) do
+    for _,recipe in pairs(unlocks) do
+      table.insert(t.effects, { type="unlock-recipe", recipe=recipe.."-"..color })
+    end
+  end
+  return t
 end
-table.insert(color_technologies, concrete)
 
--- colored indicator lamps tech
-lamp = util.table.deepcopy(data.raw["technology"]["optics"])
-lamp.name = "colored-lamps"
-lamp.icon = "__color-coding__/graphics/colored-lamps.png"
-lamp.icon_size = 128
-lamp.prerequisites = {"optics", "circuit-network"}
-lamp.unit = {count=20, ingredients={{"automation-science-pack",1},{"logistic-science-pack",1}}, time=15}
-lamp.order = "a-h-ac"
-lamp.effects = {}
-for color,rgb in pairs(config.colors) do
-    table.insert(lamp.effects, { type="unlock-recipe", recipe="small-lamp-"..color })
-end
-table.insert(color_technologies, lamp)
-
-data:extend(color_technologies)
+data:extend{
+  tech("colored-concrete",{"colored-bricks","concrete"},50,30,"c-c-cc",{"concrete","refined-concrete"}),
+  tech("colored-lamps",{"optics","circuit-network"},20,12,"a-h-ac",{"small-lamp"}),
+  tech("colored-walls",{"colored-bricks","stone-walls","logistic-science-pack"},20,12,"a-l-ac",{"stone-wall"}),
+  tech("colored-bricks",{"logistic-science-pack"},50,30,"b-dc",{"stone-brick"}),
+}

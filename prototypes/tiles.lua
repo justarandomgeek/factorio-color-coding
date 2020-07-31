@@ -1,50 +1,62 @@
 local config = require("prototypes.config")
 
-color_tiles = {}
+local color_tiles = {}
 
--- create new concrete tiles
-function add_concrete(color,rgb)
-    local concrete = util.table.deepcopy(data.raw["tile"]["hazard-concrete-left"])
-    concrete.name = "concrete-"..color
-    concrete.next_direction = nil
-    if color == "white" or color == "black" then
-        concrete.variants.material_background.picture = "__color-coding__/graphics/concrete/"..color.."/concrete.png"
-        concrete.variants.material_background.hr_version.picture = "__color-coding__/graphics/concrete/"..color.."/hr-concrete.png"
+local function tile(name,base,color,rgb,concrete,itemname)
+  local t = util.table.deepcopy(data.raw["tile"][base])
+  t.name = name.."-"..color
+  t.next_direction = nil
+  t.transition_merges_with_tile = name
+  
+  if color == "white" or color == "black" then
+    t.variants.material_background.picture = "__color-coding__/graphics/tiles/"..color.."/"..name..".png"
+    t.variants.material_background.hr_version.picture = "__color-coding__/graphics/tiles/"..color.."/hr-"..name..".png"
+  else
+    if concrete then
+      t.variants.material_background.picture = "__base__/graphics/terrain/concrete/"..name..".png"
+      t.variants.material_background.hr_version.picture = "__base__/graphics/terrain/concrete/hr-"..name..".png"
     else
-        concrete.variants.material_background.picture = "__base__/graphics/terrain/concrete/concrete.png"
-        concrete.variants.material_background.hr_version.picture = "__base__/graphics/terrain/concrete/hr-concrete.png"
-        concrete.tint = rgb.chat_color
+      t.variants.material_background = {
+        picture = "__color-coding__/graphics/tiles/plain/"..name..".png",
+        count = 8,
+        size = 1,
+        hr_version =
+        {
+          picture = "__color-coding__/graphics/tiles/plain/hr-"..name..".png",
+          count = 8,
+          size = 1,
+          scale = 0.5
+        }
+      }
     end
-    concrete.map_color = rgb.player_color
-    concrete.minable["result"] = "concrete-" .. color
-
-    table.insert(color_tiles,concrete)
-
-    local rconcrete = util.table.deepcopy(data.raw["tile"]["refined-hazard-concrete-left"])
-    rconcrete.name = "refined-concrete-"..color
-    rconcrete.transition_merges_with_tile = "refined-concrete"
-    rconcrete.next_direction = nil
-    if color == "white" or color == "black" then
-        rconcrete.variants.material_background.picture = "__color-coding__/graphics/concrete/" .. color .. "/refined-concrete.png"
-        rconcrete.variants.material_background.hr_version.picture = "__color-coding__/graphics/concrete/" .. color .. "/hr-refined-concrete.png"
-    else
-        rconcrete.variants.material_background.picture = "__base__/graphics/terrain/concrete/refined-concrete.png"
-        rconcrete.variants.material_background.hr_version.picture = "__base__/graphics/terrain/concrete/hr-refined-concrete.png"
-        rconcrete.tint = rgb.chat_color
-    end
-    rconcrete.map_color = {
-        r = (rgb.player_color["r"] * 0.5),
-        g = (rgb.player_color["g"] * 0.5),
-        b = (rgb.player_color["b"] * 0.5),
-        a = rgb.player_color["a"]
-    }
-    rconcrete.minable["result"] = "refined-concrete-" .. color
-
-    table.insert(color_tiles,rconcrete)
+    t.tint = rgb.chat_color
+  end
+  t.map_color = rgb.player_color
+  t.minable["result"] = (itemname or name).."-"..color
+  return t
 end
 
 for color,rgb in pairs(config.colors) do
-    add_concrete(color,rgb)
+  table.insert(color_tiles, tile("concrete","hazard-concrete-left",color,rgb,true))
+  
+  local rconcrete = tile("refined-concrete","refined-hazard-concrete-left",color,rgb,true)
+  rconcrete.map_color = {
+    r = (rgb.player_color["r"] * 0.5),
+    g = (rgb.player_color["g"] * 0.5),
+    b = (rgb.player_color["b"] * 0.5),
+    a = rgb.player_color["a"]
+  }
+  table.insert(color_tiles,rconcrete)
+
+  local stonepath = tile("stone-path","hazard-concrete-left",color,rgb,false,"stone-brick")
+  stonepath.layer = data.raw["tile"]["stone-path"].layer
+  stonepath.map_color = {
+    r = 0.5 + (rgb.player_color["r"] * 0.5),
+    g = 0.5 + (rgb.player_color["g"] * 0.5),
+    b = 0.5 + (rgb.player_color["b"] * 0.5),
+    a = rgb.player_color["a"]
+  }
+  table.insert(color_tiles,stonepath)
 end
 
 data:extend(color_tiles)

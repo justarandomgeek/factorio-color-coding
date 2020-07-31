@@ -1,10 +1,10 @@
 local config = require("prototypes.config")
 
-color_entities = {}
+local color_entities = {}
 
 -- create new colored indicator lamp entities
 for color,rgb in pairs(config.colors) do
-  lamp = util.table.deepcopy(data.raw["lamp"]["small-lamp"])
+  local lamp = util.table.deepcopy(data.raw["lamp"]["small-lamp"])
   lamp.name                      = "small-lamp-"..color
   lamp.icons = {
     {
@@ -79,6 +79,43 @@ for color,rgb in pairs(config.colors) do
     }
   }
 
+  local wall = util.table.deepcopy(data.raw["wall"]["stone-wall"])
+  wall.name = "stone-wall-"..color
+  wall.minable["result"]  = "stone-wall-"..color
+  wall.icons = {
+    {
+      icon = wall.icon,
+      icon_mipmaps = wall.icon_mipmaps,
+      icon_size = wall.icon_size,
+      tint = {
+        r = rgb.player_color["r"],
+        g = rgb.player_color["g"],
+        b = rgb.player_color["b"],
+        a = rgb.player_color["a"],
+      }
+    }
+  }
+  wall.icon = nil
+  wall.icon_mipmaps = nil
+  wall.icon_size = nil
+
+  local tint = {
+    r = rgb.player_color["r"],
+    g = rgb.player_color["g"],
+    b = rgb.player_color["b"],
+    --a = rgb.chat_color["a"],
+  }
+
+  for _,p in pairs(wall.pictures) do
+    if p.layers then
+      p.layers[1].tint = tint
+      p.layers[1].hr_version.tint = tint
+    elseif p.filename then
+      p.tint = tint
+      p.hr_version.tint = tint
+    end
+  end
+
   if color == "black" then
     --override blacklight color without affecting global definition of black
     lamp.picture_on.tint = config.blacklight.on_tint
@@ -86,12 +123,6 @@ for color,rgb in pairs(config.colors) do
     lamp.picture_off.layers[2].tint = config.blacklight.off_tint
     lamp.picture_off.layers[2].hr_version.tint = config.blacklight.off_tint
   else
-    local tint = {
-      r = rgb.player_color["r"],
-      g = rgb.player_color["g"],
-      b = rgb.player_color["b"],
-      --a = rgb.chat_color["a"],
-    }
     lamp.picture_on.tint = tint
     lamp.picture_on.hr_version.tint = tint
     lamp.picture_off.layers[2].tint = tint
@@ -109,6 +140,7 @@ for color,rgb in pairs(config.colors) do
   }
   lamp.minable["result"]  = "small-lamp-"..color
   table.insert(color_entities,lamp)
+  table.insert(color_entities,wall)
 end
 
 data:extend(color_entities)
