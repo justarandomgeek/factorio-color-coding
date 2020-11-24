@@ -24,6 +24,6 @@ end
 data:extend{
   tech("colored-concrete",{"colored-bricks","concrete"},50,30,"c-c-cc",{"concrete","refined-concrete"}),
   tech("colored-lamps",{"optics","circuit-network"},20,12,"a-h-ac",{"small-lamp"}),
-  tech("colored-walls",{"colored-bricks","stone-walls","logistic-science-pack"},20,12,"a-l-ac",{"stone-wall"}),
+  tech("colored-walls",{"colored-bricks","stone-wall","logistic-science-pack"},20,12,"a-l-ac",{"stone-wall"}),
   tech("colored-bricks",{"logistic-science-pack"},50,30,"b-dc",{"stone-brick"}),
 }
