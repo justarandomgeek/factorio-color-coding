@@ -22,7 +22,6 @@ local function tile(name,base,color,rgb,concrete,itemname)
       t.variants.material_background = {
         picture = "__color-coding__/graphics/tiles/plain/"..name..".png",
         count = 8,
-        size = 1,
         scale = 0.5
       }
     end

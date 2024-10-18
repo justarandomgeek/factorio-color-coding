@@ -4,7 +4,6 @@ data:extend({
         type = "item-group",
         name = "color-mod",
         order = "z",
-        inventory_order = "z",
         icon = "__color-coding__/graphics/color-coding.png",
         icon_size = 128
     },

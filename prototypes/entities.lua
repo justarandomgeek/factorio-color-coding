@@ -31,9 +31,6 @@ for color,rgb in pairs(config.colors) do
         priority = "high",
         width = 83,
         height = 70,
-        frame_count = 1,
-        axially_symmetrical = false,
-        direction_count = 1,
         shift = util.by_pixel(0.25,3),
         scale = 0.5
       },
@@ -42,9 +39,6 @@ for color,rgb in pairs(config.colors) do
         priority = "high",
         width = 83,
         height = 70,
-        frame_count = 1,
-        axially_symmetrical = false,
-        direction_count = 1,
         shift = util.by_pixel(0.25,3),
         scale = 0.5
       },
