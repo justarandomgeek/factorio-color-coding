@@ -14,13 +14,13 @@ local function tile(name,base,color,rgb,concrete,itemname)
   t.transition_merges_with_tile = name
   
   if color == "white" or color == "black" then
-    t.variants.material_background.picture = "__color-coding__/graphics/tiles/"..color.."/hr-"..name..".png"
+    t.variants.material_background.picture = "__color-coding__/graphics/tiles/"..color.."/"..name..".png"
   else
     if concrete then
-      t.variants.material_background.picture = "__base__/graphics/terrain/concrete/hr-"..name..".png"
+      t.variants.material_background.picture = "__base__/graphics/terrain/concrete/"..name..".png"
     else
       t.variants.material_background = {
-        picture = "__color-coding__/graphics/tiles/plain/hr-"..name..".png",
+        picture = "__color-coding__/graphics/tiles/plain/"..name..".png",
         count = 8,
         size = 1,
         scale = 0.5

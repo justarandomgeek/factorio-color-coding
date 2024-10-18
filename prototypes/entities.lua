@@ -27,7 +27,7 @@ for color,rgb in pairs(config.colors) do
   lamp.picture_off = {
     layers = {
       {
-        filename = "__color-coding__/graphics/lamp/hr-lamp.png",
+        filename = "__color-coding__/graphics/lamp/lamp.png",
         priority = "high",
         width = 83,
         height = 70,
@@ -38,7 +38,7 @@ for color,rgb in pairs(config.colors) do
         scale = 0.5
       },
       {
-        filename = "__color-coding__/graphics/lamp/hr-lamp-bulb.png",
+        filename = "__color-coding__/graphics/lamp/lamp-bulb.png",
         priority = "high",
         width = 83,
         height = 70,
