@@ -1,7 +1,12 @@
 local config = require("prototypes.config")
 
-local color_tiles = {}
-
+---@param name string
+---@param base string
+---@param color string
+---@param rgb any
+---@param concrete boolean
+---@param itemname? string
+---@return data.TilePrototype
 local function tile(name,base,color,rgb,concrete,itemname)
   local t = util.table.deepcopy(data.raw["tile"][base])
   t.name = name.."-"..color
@@ -9,24 +14,16 @@ local function tile(name,base,color,rgb,concrete,itemname)
   t.transition_merges_with_tile = name
   
   if color == "white" or color == "black" then
-    t.variants.material_background.picture = "__color-coding__/graphics/tiles/"..color.."/"..name..".png"
-    t.variants.material_background.hr_version.picture = "__color-coding__/graphics/tiles/"..color.."/hr-"..name..".png"
+    t.variants.material_background.picture = "__color-coding__/graphics/tiles/"..color.."/hr-"..name..".png"
   else
     if concrete then
-      t.variants.material_background.picture = "__base__/graphics/terrain/concrete/"..name..".png"
-      t.variants.material_background.hr_version.picture = "__base__/graphics/terrain/concrete/hr-"..name..".png"
+      t.variants.material_background.picture = "__base__/graphics/terrain/concrete/hr-"..name..".png"
     else
       t.variants.material_background = {
-        picture = "__color-coding__/graphics/tiles/plain/"..name..".png",
+        picture = "__color-coding__/graphics/tiles/plain/hr-"..name..".png",
         count = 8,
         size = 1,
-        hr_version =
-        {
-          picture = "__color-coding__/graphics/tiles/plain/hr-"..name..".png",
-          count = 8,
-          size = 1,
-          scale = 0.5
-        }
+        scale = 0.5
       }
     end
     t.tint = rgb.chat_color
@@ -37,7 +34,7 @@ local function tile(name,base,color,rgb,concrete,itemname)
 end
 
 for color,rgb in pairs(config.colors) do
-  table.insert(color_tiles, tile("concrete","hazard-concrete-left",color,rgb,true))
+  local hazard = tile("concrete","hazard-concrete-left",color,rgb,true)
   
   local rconcrete = tile("refined-concrete","refined-hazard-concrete-left",color,rgb,true)
   rconcrete.map_color = {
@@ -46,7 +43,6 @@ for color,rgb in pairs(config.colors) do
     b = (rgb.player_color["b"] * 0.5),
     a = rgb.player_color["a"]
   }
-  table.insert(color_tiles,rconcrete)
 
   local stonepath = tile("stone-path","hazard-concrete-left",color,rgb,false,"stone-brick")
   stonepath.layer = data.raw["tile"]["stone-path"].layer
@@ -56,7 +52,6 @@ for color,rgb in pairs(config.colors) do
     b = 0.5 + (rgb.player_color["b"] * 0.5),
     a = rgb.player_color["a"]
   }
-  table.insert(color_tiles,stonepath)
+  
+  data.extend{hazard, rconcrete, stonepath}
 end
-
-data:extend(color_tiles)

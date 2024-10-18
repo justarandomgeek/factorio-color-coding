@@ -1,7 +1,5 @@
 local config = require("prototypes.config")
 
-local color_entities = {}
-
 -- create new colored indicator lamp entities
 for color,rgb in pairs(config.colors) do
   local lamp = util.table.deepcopy(data.raw["lamp"]["small-lamp"])
@@ -9,12 +7,10 @@ for color,rgb in pairs(config.colors) do
   lamp.icons = {
     {
       icon = "__base__/graphics/icons/small-lamp.png",
-      icon_mipmaps = 4,
       icon_size = 64,
     },
     {
       icon = "__color-coding__/graphics/lamp/small-lamp-bulb.png",
-      icon_mipmaps = 4,
       icon_size = 64,
       tint = {
         r = rgb.player_color["r"] * 0.9,
@@ -25,55 +21,32 @@ for color,rgb in pairs(config.colors) do
     }
   }
   lamp.icon = nil
-  lamp.icon_mipmaps = nil
   lamp.icon_size = nil
   lamp.signal_to_color_mapping   = nil
 
   lamp.picture_off = {
     layers = {
       {
-        filename = "__color-coding__/graphics/lamp/lamp.png",
+        filename = "__color-coding__/graphics/lamp/hr-lamp.png",
         priority = "high",
-        width = 42,
-        height = 36,
+        width = 83,
+        height = 70,
         frame_count = 1,
         axially_symmetrical = false,
         direction_count = 1,
-        shift = util.by_pixel(0,3),
-        hr_version =
-        {
-          filename = "__color-coding__/graphics/lamp/hr-lamp.png",
-          priority = "high",
-          width = 83,
-          height = 70,
-          frame_count = 1,
-          axially_symmetrical = false,
-          direction_count = 1,
-          shift = util.by_pixel(0.25,3),
-          scale = 0.5
-        }
+        shift = util.by_pixel(0.25,3),
+        scale = 0.5
       },
       {
-        filename = "__color-coding__/graphics/lamp/lamp-bulb.png",
+        filename = "__color-coding__/graphics/lamp/hr-lamp-bulb.png",
         priority = "high",
-        width = 42,
-        height = 36,
+        width = 83,
+        height = 70,
         frame_count = 1,
         axially_symmetrical = false,
         direction_count = 1,
-        shift = util.by_pixel(0,3),
-        hr_version =
-        {
-          filename = "__color-coding__/graphics/lamp/hr-lamp-bulb.png",
-          priority = "high",
-          width = 83,
-          height = 70,
-          frame_count = 1,
-          axially_symmetrical = false,
-          direction_count = 1,
-          shift = util.by_pixel(0.25,3),
-          scale = 0.5
-        }
+        shift = util.by_pixel(0.25,3),
+        scale = 0.5
       },
       lamp.picture_off.layers[2] -- shadow
     }
@@ -85,7 +58,6 @@ for color,rgb in pairs(config.colors) do
   wall.icons = {
     {
       icon = wall.icon,
-      icon_mipmaps = wall.icon_mipmaps,
       icon_size = wall.icon_size,
       tint = {
         r = rgb.player_color["r"],
@@ -96,7 +68,6 @@ for color,rgb in pairs(config.colors) do
     }
   }
   wall.icon = nil
-  wall.icon_mipmaps = nil
   wall.icon_size = nil
 
   local tint = {
@@ -109,24 +80,18 @@ for color,rgb in pairs(config.colors) do
   for _,p in pairs(wall.pictures) do
     if p.layers then
       p.layers[1].tint = tint
-      p.layers[1].hr_version.tint = tint
     elseif p.filename then
       p.tint = tint
-      p.hr_version.tint = tint
     end
   end
 
   if color == "black" then
     --override blacklight color without affecting global definition of black
     lamp.picture_on.tint = config.blacklight.on_tint
-    lamp.picture_on.hr_version.tint = config.blacklight.on_tint
     lamp.picture_off.layers[2].tint = config.blacklight.off_tint
-    lamp.picture_off.layers[2].hr_version.tint = config.blacklight.off_tint
   else
     lamp.picture_on.tint = tint
-    lamp.picture_on.hr_version.tint = tint
     lamp.picture_off.layers[2].tint = tint
-    lamp.picture_off.layers[2].hr_version.tint = tint
   end
   
   lamp.energy_usage_per_tick     = "250W"
@@ -139,8 +104,8 @@ for color,rgb in pairs(config.colors) do
       b                          = rgb.chat_color["b"],
   }
   lamp.minable["result"]  = "small-lamp-"..color
-  table.insert(color_entities,lamp)
-  table.insert(color_entities,wall)
+  data.extend{
+    lamp,
+    wall,
+  }
 end
-
-data:extend(color_entities)
