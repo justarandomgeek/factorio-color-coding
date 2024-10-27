@@ -29,6 +29,7 @@ local function tile(name,base,color,rgb,concrete,itemname)
   end
   t.map_color = rgb.player_color
   t.minable["result"] = (itemname or name).."-"..color
+  t.placeable_by = nil
   return t
 end
 
