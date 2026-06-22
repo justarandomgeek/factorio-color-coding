@@ -1,3 +1,4 @@
+---@diagnostic disable: need-check-nil
 local config = require("prototypes.config")
 
 -- create new colored indicator lamp entities
@@ -44,7 +45,7 @@ for color,rgb in pairs(config.colors) do
       },
       lamp.picture_off.layers[2] -- shadow
     }
-  }
+  }--[[@as data.Sprite]]
 
   local wall = util.table.deepcopy(data.raw["wall"]["stone-wall"])
   wall.name = "stone-wall-"..color
@@ -60,7 +61,7 @@ for color,rgb in pairs(config.colors) do
         a = rgb.player_color["a"],
       }
     }
-  }
+  } ---@as data.IconData[]
   wall.icon = nil
   wall.icon_size = nil
 
@@ -71,7 +72,7 @@ for color,rgb in pairs(config.colors) do
     --a = rgb.chat_color["a"],
   }
 
-  for _,p in pairs(wall.pictures) do
+  for _,p in pairs(wall.pictures--[[@cast -?]]) do
     if p.layers then
       p.layers[1].tint = tint
     elseif p.filename then
